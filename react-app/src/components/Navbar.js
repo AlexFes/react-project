@@ -5,7 +5,7 @@ class Navbar extends React.Component {
     render() {
         return (
             <div>
-                <ul className="nav nav-pills flex-column flex-sm-row mt-3 ml-5" role="tablist">
+                <ul className="nav nav-pills flex-column flex-sm-row mt-3 mx-5" role="tablist">
                     <li className="nav-item mr-2">
                         <Link className="flex-sm-fill text-sm-center nav-link btn btn-outline-success" to='/home'>
                             О нас
@@ -24,6 +24,12 @@ class Navbar extends React.Component {
 
                     <li className="nav-item">
                         <a className="flex-sm-fill text-sm-center nav-link btn btn-outline-success" href="#">Новости</a>
+                    </li>
+
+                    <li className="nav-item ml-auto">
+                        <Link className="flex-sm-fill text-sm-center nav-link btn btn-outline-success" to="/singup">
+                            Регистрация
+                        </Link>
                     </li>
                 </ul>
 
