@@ -1,18 +1,24 @@
 import React from "react"
 
+import Carousel from "../components/Carousel";
+
 class Main extends React.Component {
     render() {
         return (
             <div className="col-6 ml-auto mr-auto mt-5">
                 <h4 className="mt-4">О нас</h4>
 
-                <div className="row mt-4">
+                <div className="row my-4">
                     <h6>
                         В Калужской области, в нескольких километрах
                         от новой Москвы на площади 25 га «расцвел»
                         новый яблоневый сад.
                     </h6>
+                </div>
 
+                <Carousel/>
+
+                <div className="row mt-4">
                     <p className="mt-4">
                         Новый он не только потому, что был заложен
                         совсем недавно — в прошлом году,

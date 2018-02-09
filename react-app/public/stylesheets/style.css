@@ -15,6 +15,19 @@ body {
 
 
 
+
+
+    /* Main js */
+.col-6>.row>p,
+.col-6>.row>h6 {
+    margin-left: 1rem;
+}
+
+
+
+
+
+
     /* Footer js */
 .fa {
     padding: 20px;

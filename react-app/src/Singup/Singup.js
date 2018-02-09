@@ -8,7 +8,7 @@ class Singup extends React.Component {
                     Регистрация
                 </h4>
 
-                <form action="#" method="post" className="mt-4">
+                <form className="mt-4">
                     <div className="form-group">
                         <label htmlFor="inputEmail">
                             Логин
