@@ -1,6 +1,6 @@
 import React from "react"
 
-import Carousel from "../components/Carousel";
+import Carousel from "../_components/Carousel";
 
 class Main extends React.Component {
     render() {
