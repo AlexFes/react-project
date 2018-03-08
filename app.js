@@ -14,10 +14,10 @@ const users = require('./routes/users');
 // const StaticRouter = require('react-router');
 // const ReactDOMServer = require('react-dom/server');
 
-import React from 'react';
-import StaticRouter from 'react-router';
-import ReactDOMServer from 'react-dom/server';
-import App from './react-app/src/App/App';
+// import React from 'react';
+// import StaticRouter from 'react-router';
+// import ReactDOMServer from 'react-dom/server';
+// import App from './src/App/App';
 
 
 const app = express();
@@ -33,22 +33,23 @@ app.use(bodyParser.json());
 app.use(bodyParser.urlencoded({ extended: false }));
 app.use(cookieParser());
 app.use(express.static(path.join(__dirname, 'public')));
+app.use(express.static(path.join(__dirname, 'dist')));
 
 app.use('/', index);
 app.use('/users', users);
 
 // Settle up server side rendering
-app.get('*', (req, res) => {
-    const staticContext = {};
-
-    const html = ReactDOMServer.renderToString(
-        <StaticRouter location={req.url} context={staticContext}>
-            <App/>
-        </StaticRouter>
-    );
-
-    res.status(staticContext.statusCode || 200).send(html);
-});
+// app.get('*', (req, res) => {
+//     const staticContext = {};
+//
+//     const html = ReactDOMServer.renderToString(
+//         <StaticRouter location={req.url} context={staticContext}>
+//             <App/>
+//         </StaticRouter>
+//     );
+//
+//     res.status(staticContext.statusCode || 200).send(html);
+// });
 
 // catch 404 and forward to error handler
 app.use(function(req, res, next) {
