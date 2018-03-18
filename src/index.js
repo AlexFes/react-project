@@ -3,9 +3,8 @@ import ReactDOM from 'react-dom';
 import { BrowserRouter } from 'react-router-dom'
 
 import App from './App/App';
-import registerServiceWorker from './registerServiceWorker';
 
-ReactDOM.render(
+ReactDOM.hydrate(
     <BrowserRouter>
         <App />
     </BrowserRouter>,
@@ -13,4 +12,3 @@ ReactDOM.render(
     document.getElementById('root')
 );
 
-registerServiceWorker();

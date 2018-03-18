@@ -13,15 +13,15 @@ const Carousel = () => {
 
             <div className="carousel-inner">
                 <div className="carousel-item active">
-                    <img src={require("../_public/images/DJI_0490.JPG")} alt="First slide" className="d-block img-fluid w-100"/>
+                    <img src={require("../../public/images/DJI_0490.JPG")} alt="First slide" className="d-block img-fluid w-100"/>
                 </div>
 
                 <div className="carousel-item">
-                    <img src={require("../_public/images/DJI_0499.JPG")} alt="Second slide" className="d-block img-fluid w-100"/>
+                    <img src={require("../../public/images/DJI_0499.JPG")} alt="Second slide" className="d-block img-fluid w-100"/>
                 </div>
 
                 <div className="carousel-item">
-                    <img src={require("../_public/images/DJI_0500.JPG")} alt="Third slide" className="d-block img-fluid w-100"/>
+                    <img src={require("../../public/images/DJI_0500.JPG")} alt="Third slide" className="d-block img-fluid w-100"/>
                 </div>
             </div>
 

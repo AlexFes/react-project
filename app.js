@@ -1,30 +1,21 @@
 const express = require('express');
+const router = express.Router();
 const path = require('path');
 const favicon = require('serve-favicon');
 const logger = require('morgan');
 const cookieParser = require('cookie-parser');
 const bodyParser = require('body-parser');
 
-const index = require('./routes/index');
-const users = require('./routes/users');
-
-// import * as express from 'express';
-
-// const React = require('react');
-// const StaticRouter = require('react-router');
-// const ReactDOMServer = require('react-dom/server');
-
-// import React from 'react';
-// import StaticRouter from 'react-router';
-// import ReactDOMServer from 'react-dom/server';
-// import App from './src/App/App';
+// const index = require('./routes/index');
+// const users = require('./routes/users');
 
 
 const app = express();
+const context = {};
 
 // view engine setup
-app.set('views', path.join(__dirname, 'views'));
-app.set('view engine', 'jade');
+app.set('views', path.join(__dirname, 'public'));
+app.set('view engine', 'ejs');
 
 // uncomment after placing your favicon in /public
 //app.use(favicon(path.join(__dirname, 'public', 'favicon.ico')));
@@ -34,9 +25,10 @@ app.use(bodyParser.urlencoded({ extended: false }));
 app.use(cookieParser());
 app.use(express.static(path.join(__dirname, 'public')));
 app.use(express.static(path.join(__dirname, 'dist')));
+app.use(express.static(path.join(__dirname, 'src')));
 
-app.use('/', index);
-app.use('/users', users);
+// app.use('/', index);
+// app.use('/users', users);
 
 // Settle up server side rendering
 // app.get('*', (req, res) => {
@@ -50,6 +42,26 @@ app.use('/users', users);
 //
 //     res.status(staticContext.statusCode || 200).send(html);
 // });
+// ReactDOMServer.renderToString(<StaticRouter> <App></App> </StaticRouter>);
+
+import React from 'react';
+import { StaticRouter } from 'react-router';
+import ReactDOMServer from 'react-dom/server';
+// import App from './src/App/App';
+import App from './src/_components/Navbar';
+
+router.get('*', (req, res) => {
+    const html = ReactDOMServer.renderToString(React.createElement(App));
+
+    // res.send(`<!doctype html>
+    //   <div id="root">${html}</div>`);
+
+
+    res.render('index', { html });
+    // res.send(html);
+});
+
+app.use('*', router);
 
 // catch 404 and forward to error handler
 app.use(function(req, res, next) {

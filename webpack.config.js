@@ -1,17 +1,14 @@
 const path = require("path");
-// const HtmlWebPackPlugin = require("html-webpack-plugin");
 
 module.exports = {
     entry: [
         "./src/index.js"
-
-        // "./app.js"
     ],
 
     output: {
         path: path.resolve(__dirname, "dist"),
+
         filename: "bundle.js"
-        // publicPath: '/public/'
     },
 
     module: {
@@ -25,16 +22,6 @@ module.exports = {
                     loader: "babel-loader"
                 }
             },
-
-            // {
-            //     test: /\.html$/,
-            //
-            //     use: [
-            //         {
-            //             loader: "html-loader"
-            //         }
-            //     ]
-            // },
 
             {
                 test: /\.(png|jpg|gif|JPG)$/,
@@ -52,11 +39,6 @@ module.exports = {
 
     // node: {
     //     fs: 'empty',
-    //
     //     net: 'empty'
-    // },
-
-    // plugins: [
-    //     new HtmlWebPackPlugin()
-    // ]
+    // }
 };
