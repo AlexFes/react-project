@@ -8,7 +8,7 @@ class Singup extends React.Component {
                     Регистрация
                 </h4>
 
-                <form className="mt-4">
+                <form className="my-4">
                     <div className="form-group">
                         <label htmlFor="inputEmail">
                             Логин
@@ -33,6 +33,10 @@ class Singup extends React.Component {
                         Отправить
                     </button>
                 </form>
+
+                <a href="/auth/google">
+                    <img className='w-50' src={ require('../_images/google_signup_button.png') } alt="Войти с Google"/>
+                </a>
             </div>
         );
     }

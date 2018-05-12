@@ -1,5 +1,7 @@
 import React from 'react';
-import { Route, BrowserRouter } from 'react-router-dom'
+import { Route, BrowserRouter } from 'react-router-dom';
+import { connect } from 'react-redux';
+import * as actions from '../_actions';
 
 import Navbar from '../_components/Navbar';
 import Footer from "../_components/Footer";
@@ -9,11 +11,15 @@ import Contacts from "../Contacts/Contacts";
 import Singup from "../Singup/Singup"
 
 class App extends React.Component {
+    componentDidMount() {
+        this.props.fetchUser();
+    }
+
     render() {
         return (
             <BrowserRouter>
                 <div>
-                    <Route path='/' component={Navbar}/>
+                    <Navbar />
 
                     <Route exact path='/' component={Main}/>
 
@@ -33,4 +39,4 @@ class App extends React.Component {
     }
 }
 
-export default App;
+export default connect(null, actions)(App);

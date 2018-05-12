@@ -1,7 +1,31 @@
 import React from 'react';
 import { Link } from 'react-router-dom';
+import { connect } from 'react-redux';
 
 class Navbar extends React.Component {
+    renderContent() {
+        switch(this.props.auth) {
+            case null:
+                return;
+            case false:
+                return (
+                    <li className="nav-item ml-auto">
+                        <Link className="flex-sm-fill text-sm-center nav-link btn btn-outline-success" to="/singup">
+                            Регистрация
+                        </Link>
+                    </li>
+                );
+            default:
+                return (
+                    <li className="nav-item ml-auto">
+                        <a className="flex-sm-fill text-sm-center nav-link btn btn-outline-success" href='/api/logout'>
+                            Выйти
+                        </a>
+                    </li>
+                );
+        }
+    }
+
     render() {
         return (
             <div>
@@ -25,12 +49,8 @@ class Navbar extends React.Component {
                     <li className="nav-item">
                         <a className="flex-sm-fill text-sm-center nav-link btn btn-outline-success" href="#">Новости</a>
                     </li>
-
-                    <li className="nav-item ml-auto">
-                        <Link className="flex-sm-fill text-sm-center nav-link btn btn-outline-success" to="/singup">
-                            Регистрация
-                        </Link>
-                    </li>
+                    
+                    { this.renderContent() }
                 </ul>
 
                 <hr/>
@@ -39,4 +59,8 @@ class Navbar extends React.Component {
     }
 }
 
-export default Navbar;
+function mapStateToProps(state) {
+    return { auth: state.auth };
+}
+
+export default connect(mapStateToProps)(Navbar);

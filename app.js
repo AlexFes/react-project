@@ -12,6 +12,7 @@ require('./services/passport');
 
 const index = require('./routes/index');
 const auth = require('./routes/authRoutes');
+const api = require('./routes/api');
 
 mongoose.connect(keys.mongoURI);
 
@@ -38,6 +39,7 @@ app.use(passport.session());
 
 app.use('/', index);
 app.use('/auth', auth);
+app.use('/api', api);
 
 // catch 404 and forward to error handler
 app.use(function(req, res, next) {
