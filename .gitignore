@@ -2,4 +2,7 @@
 
 node_modules
 
-keys.js
+client/.env.development
+client/.env.production
+
+config/
