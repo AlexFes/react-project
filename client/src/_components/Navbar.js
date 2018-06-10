@@ -3,7 +3,7 @@ import { Link } from 'react-router-dom';
 import { connect } from 'react-redux';
 
 class Navbar extends React.Component {
-    renderContent() {
+    renderSingup() {
         switch(this.props.auth) {
             case null:
                 return;
@@ -17,13 +17,29 @@ class Navbar extends React.Component {
                 );
             default:
                 return (
-                    <li className="nav-item ml-auto">
+                    <li className="nav-item">
                         <a className="flex-sm-fill text-sm-center nav-link btn btn-outline-success" href='/api/logout'>
                             Выйти
                         </a>
                     </li>
                 );
         }
+    }
+
+    renderAccount() {
+        switch(this.props.auth) {
+            case null || false:
+                return;
+            default:
+                return (
+                    <li className="nav-item ml-auto">
+                        <Link className="flex-sm-fill text-sm-center nav-link btn btn-outline-success mr-2" to='/account'>
+                            Личный кабинет
+                        </Link>
+                    </li>
+                );
+        }
+
     }
 
     render() {
@@ -49,8 +65,10 @@ class Navbar extends React.Component {
                     <li className="nav-item">
                         <a className="flex-sm-fill text-sm-center nav-link btn btn-outline-success" href="#">Новости</a>
                     </li>
-                    
-                    { this.renderContent() }
+
+                    { this.renderAccount() }
+
+                    { this.renderSingup() }
                 </ul>
 
                 <hr/>

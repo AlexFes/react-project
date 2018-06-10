@@ -4,11 +4,13 @@ import { connect } from 'react-redux';
 import * as actions from '../_actions';
 
 import Navbar from '../_components/Navbar';
-import Footer from "../_components/Footer";
+import Footer from '../_components/Footer';
 
 import Main from '../Main/Main';
-import Contacts from "../Contacts/Contacts";
-import Singup from "../Singup/Singup"
+import Contacts from '../Contacts/Contacts';
+import Account from '../Account/Account';
+import Singup from '../Singup/Singup'
+
 
 class App extends React.Component {
     componentDidMount() {
@@ -27,7 +29,9 @@ class App extends React.Component {
 
                     <Route path='/contacts' component={Contacts}/>
 
-                    <Route path="/singup" component={Singup}/>
+                    <Route path='/singup' component={Singup}/>
+
+                    <Route path='/account' component={Account}></Route>
 
                     {/* Need to fix this */}
                     <Route exact path='/' component={Footer}/>

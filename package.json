@@ -2,10 +2,16 @@
   "name": "react-project",
   "version": "0.0.0",
   "private": true,
+  "engines": {
+    "node": "8.9.0",
+    "npm": "5.8.0"
+  },
   "scripts": {
+    "start": "node bin/www",
     "dev": "concurrently \"npm run client\" \"npm run server\"",
     "client": "npm start --prefix client",
-    "server": "nodemon bin/www"
+    "server": "nodemon bin/www",
+    "heroku-postbuild": "NPM_CONFIG_PRODUCTION=false npm install --prefix client && npm run build --prefix client"
   },
   "dependencies": {
     "body-parser": "~1.18.2",
@@ -19,6 +25,7 @@
     "morgan": "^1.9.0",
     "nodemon": "^1.17.3",
     "passport": "^0.4.0",
-    "passport-google-oauth20": "^1.0.0"
+    "passport-google-oauth20": "^1.0.0",
+    "stripe": "^6.0.0"
   }
 }
