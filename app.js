@@ -10,7 +10,6 @@ const keys = require('./config/keys');
 require('./models/users');
 require('./services/passport');
 
-const index = require('./routes/index');
 const auth = require('./routes/authRoutes');
 const api = require('./routes/api');
 
@@ -32,7 +31,6 @@ app.use(
 app.use(passport.initialize());
 app.use(passport.session());
 
-app.use('/', index);
 app.use('/auth', auth);
 app.use('/api', api);
 
