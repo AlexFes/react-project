@@ -1,7 +1,7 @@
 import React from 'react';
 import { Route, BrowserRouter } from 'react-router-dom';
 import { connect } from 'react-redux';
-import * as actions from '../_actions';
+import * as actions from '../_actions/actions';
 
 import Navbar from '../_components/Navbar';
 import Footer from '../_components/Footer';
@@ -9,8 +9,8 @@ import Footer from '../_components/Footer';
 import Main from '../Main/Main';
 import Contacts from '../Contacts/Contacts';
 import Account from '../Account/Account';
-import Singup from '../Singup/Singup'
-
+import Signup from '../Signup/Signup';
+import Login from '../Login/Login';
 
 class App extends React.Component {
     componentDidMount() {
@@ -29,11 +29,12 @@ class App extends React.Component {
 
                     <Route path='/contacts' component={Contacts}/>
 
-                    <Route path='/singup' component={Singup}/>
+                    <Route path='/signup' component={Signup}/>
 
-                    <Route path='/account' component={Account}></Route>
+                    <Route path='/account' component={Account}/>
 
-                    {/* Need to fix this */}
+                    <Route path='/login' component={Login}/>
+
                     <Route exact path='/' component={Footer}/>
                     <Route path='/home' component={Footer}/>
                     <Route path='/contacts' component={Footer}/>
